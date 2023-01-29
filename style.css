@@ -70,6 +70,10 @@ header .logo .span {
     color: var(--text-color);
 }
 
+.navbar .cv {
+	border: 1px solid var(--main-color);
+}
+
 #menu-icon {
     font-size: 36px;
     color: var(--text-color);
