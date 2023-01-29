@@ -70,10 +70,6 @@ header .logo .span {
     color: var(--text-color);
 }
 
-.navbar .cv{
-	display: none;
-}
-
 #menu-icon {
     font-size: 36px;
     color: var(--text-color);
@@ -311,6 +307,7 @@ header.sticky{
 }
 .contact-list{
 	margin-bottom: 3rem;
+	cursor: default;
 }
 .contact-list li{
 	margin-bottom: 10px;
@@ -441,7 +438,7 @@ form textarea{
 		transition: all .40s ease;
 	}
 
-	.navbar .cv{
+	.navbar{
 		display: block;
 	}
 	.navbar a{
