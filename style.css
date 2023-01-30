@@ -395,8 +395,8 @@ form textarea {
 }
 
 footer {
-  background-color: rgba(18, 20, 28, 0.5);
-  color: #fff;
+  background-color: var(--other-color);
+  color: var(--second-color);
   padding: 20px;
   text-align: center;
 }
