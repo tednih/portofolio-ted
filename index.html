@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
     <title>Portfolio Teddy</title>
-	<script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 
@@ -34,7 +33,7 @@
         <h4>Hello!</h4>
         <h1>I'm Dimas<br>Ted<span>dy</span></h1>
         <h3>Junior Web Developer | <span>Front-End</span></h3>
-        <a href="https://wa.me/6282115457433" target="_blank" class="btn">Hire Me</a>
+        <a href="#contact" target="_blank" class="btn">Hire Me</a>
     </div>
 </section>
 
@@ -81,21 +80,21 @@
 
 		<div class="services-content">
 			<div class="box">
-				<i data-feather="monitor" class="feather-icon"></i>
+				<i class='bx bx-desktop feather-icon'></i>
 				<h3>Website Design</h3>
 				<p>I usually design websites using HTML, CSS, and JavaScript</p>
 				
 			</div>
 
 			<div class="box">
-				<i data-feather="smartphone" class="feather-icon"></i>
+				<i class='bx bx-mobile feather-icon'></i>
 				<h3>Mobile App Design</h3>
 				<p>I usually design mobile apps using Dart - Flutter</p>
 			
 			</div>
 
 			<div class="box">
-				<i data-feather="figma" class="feather-icon"></i>
+				<i class='bx bx-image feather-icon'></i>
 				<h3>UI/UX Design</h3>
 				<p>I usually design UI/UX using Figma</p>
 			</div>
@@ -111,16 +110,16 @@
 
 		<div class="portfolio-content">
 			<div class="row">
-				<img src="img/portfolio1.jpg">
+				<img src="img/portfolio1.png">
 				<div class="main-row">
 					<div class="row-text">
-						<h6>Development</h6>
+						<h6>Website</h6>
 					</div>
 					<div class="row-icon">
-						<i class='bx bx-heart'></i>
+						<a href="https://portfolio-ted.vercel.app/" target="_blank"><i class='bx bx-link-external'></i></a>
 					</div>
 				</div>
-				<h3>Mobile app landing design & Services lorem</h3>
+				<h3>Responsive Portfolio Website</h3>
 			</div>
 
 			<div class="row">
@@ -143,7 +142,7 @@
 						<h6>Development</h6>
 					</div>
 					<div class="row-icon">
-						<i class='bx bx-heart'></i>
+						<i class='bx bx-link-external'></i>
 					</div>
 				</div>
 				<h3>Mobile app landing design & Services</h3>
@@ -209,13 +208,17 @@
 			</div>
 		</div>
 
-		<div class="contact-form">
-			<form action="">
-				<input type="" placeholder="Enter Your Name" required>
-				<input type="email" placeholder="Enter Your Email" required>
-				<input type="" placeholder="Enter Your Subject">
-				<textarea name="" id="" cols="40" rows="10" placeholder="Enter Your Message" required></textarea>
-				<input type="submit" value="Submit" class="send">
+		<div class="contact-form">		
+			<div class="alert hide">
+				<p>Your message has been successfully sent!<button class="close-button">×</button></p>
+			</div>
+			<form action="" name="submit-to-google-sheet">
+				<input type="" placeholder="Enter Your Name" required name="nama">
+				<input type="email" placeholder="Enter Your Email" required name="email">
+				<input type="" placeholder="Enter Your Subject" name="subjek">
+				<textarea name="pesan" id="" cols="40" rows="10" placeholder="Enter Your Message" required></textarea>
+				<input type="submit" value="Submit" class="send hide">
+				<input type="" value="Loading..." class="loading-button hide">
 			</form>
 		</div>
 	</section>
@@ -225,10 +228,38 @@
 	</footer>
 
 </section>
-
+	<script src="https://unpkg.com/scrollreveal"></script>
     <script type="text/javascript" src="js/script.js"></script>
 	<script>
 		feather.replace()
+	</script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxY4_zDqRYXIclv71M6nog9dyZjVxMjyDHn-Cva7qADZS8_sCehZx5wWRFkit2hQQ/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const btnSubmit = document.querySelector('.send');
+  const btnLoading = document.querySelector('.loading-button');
+  const myAlert = document.querySelector('.alert');
+  const closeButton = document.querySelector('.close-button');
+
+  closeButton.addEventListener("click", function() {
+  myAlert.style.display = "none";
+});
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+	btnLoading.classList.toggle('hide')
+	btnSubmit.classList.remove('send')
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+		btnLoading.classList.toggle('hide')
+		btnSubmit.classList.toggle('send')
+		myAlert.classList.toggle('hide')
+		form.reset()
+		console.log('Success!', response)
+	})
+      .catch(error => console.error('Error!', error.message))
+  })
 </script>
 </body>
 </html>

@@ -286,6 +286,12 @@ header.sticky {
 .row-icon i {
   font-size: 21px;
 }
+.row-icon a {
+  color: #fff;
+}
+.row-icon i:hover {
+  color: var(--main-color);
+}
 .row:hover {
   transform: scale(1.01) translateY(-5px);
   cursor: pointer;
@@ -392,6 +398,38 @@ form textarea {
   font-size: 20px;
   padding: 10px;
   border-radius: 0.5rem;
+}
+
+.contact-form form .loading-button {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  background: var(--main-color);
+  color: var(--text-color);
+  width: 190px;
+  transition: all 0.4s ease;
+  cursor: progress;
+}
+
+.hide {
+  display: none;
+}
+
+.alert {
+  padding: 20px;
+  background-color: var(--main-color);
+  color: white;
+  margin-bottom: 15px;
+}
+
+.close-button {
+  float: right;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: 0;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 footer {
