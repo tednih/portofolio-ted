@@ -397,7 +397,7 @@ form textarea {
 footer {
   background-color: var(--other-color);
   color: var(--second-color);
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
