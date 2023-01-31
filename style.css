@@ -150,6 +150,7 @@ header.sticky {
 }
 
 .about {
+  margin-top: 200px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
@@ -223,6 +224,8 @@ header.sticky {
 .box .feather-icon {
   transition: all 0.4s ease;
   color: var(--main-color);
+  display: inline-block;
+  font-size: 30px;
 }
 
 .box h3 {
